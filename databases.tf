@@ -3,4 +3,7 @@ resource "aws_db_instance" "mysql" {
   engine                    = "mysql"
   allocated_storage         = 20
   instance_class            = "db.t2.micro"
-  name                     
+  name                      = "mysql-db-instance"
+  username                  = "admin"
+  password                  = "password"
+}
