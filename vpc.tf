@@ -42,3 +42,12 @@ resource "aws_route_table_association" "public" {
   subnet_id = aws_subnet.public.id
   route_table_id = aws_route_table.public.id
 }
+
+resource "aws_subnet" "private" {
+  cidr_block = "10.0.2.0/24"
+}
+
+resource "aws_db_subnet_group" "default" {
+  name        = "default"
+  subnet_ids  = [aws_subnet.private.id]
+}
